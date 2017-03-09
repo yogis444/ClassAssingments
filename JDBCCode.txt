@@ -1,0 +1,38 @@
+package com.jdbcExample;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class jdbcExample {
+public static void main(String[] args) {
+	try {
+		Class.forName(com.mysql.jdbc.Driver);
+		Connection con=DriverManager.getConnection(jdbcmysqllocalhost3306Student,root,root);
+		System.out.println(database is connected.....);
+		PreparedStatement ps=con.prepareStatement(insert into student_info values(,,,));
+		ps.setString(1, 1010);
+		ps.setString(2, xyz);
+		ps.setString(3, abc);
+		ps.setString(4, abc123);
+		int i=ps.executeUpdate();
+		if(i0) {
+			System.out.println(Record inserted......);
+		
+		}else {
+			System.out.println(error in data insertion....);
+		}
+		PreparedStatement ps1=con.prepareStatement(select  from student_info);
+	ResultSet rs=ps1.executeQuery();
+	while(rs.next()) {
+		System.out.println(rs.getString(1)+ +rs.getString(2)+ +rs.getString(3)+ +rs.getString(4));
+	}
+	} catch (ClassNotFoundException  SQLException e) {
+		 TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
+}
